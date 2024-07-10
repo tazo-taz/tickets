@@ -1,13 +1,14 @@
 import mongoose from 'mongoose';
 import { app } from './app';
-import { natsWrapper } from './nats-wrapper';
-import { TicketCreatedListener } from './events/listeners/ticket-created-listener';
-import { TicketUpdatedListener } from './events/listeners/ticket-updated-listener';
-import { signin } from './test/utils';
 import { ExpirationCompleteListener } from './events/listeners/expiration-complete-listener';
 import { PaymentCreatedListener } from './events/listeners/payment-created-listener';
+import { TicketCreatedListener } from './events/listeners/ticket-created-listener';
+import { TicketUpdatedListener } from './events/listeners/ticket-updated-listener';
+import { natsWrapper } from './nats-wrapper';
 
 const start = async () => {
+  console.log('Starting up...');
+  
   if (!process.env.JWT_KEY) {
     throw new Error("JWY_KEY must be defined")
   }
