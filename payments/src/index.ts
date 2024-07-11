@@ -46,5 +46,3 @@ const start = async () => {
 };
 
 start();
-
-// TODO: 12 gagdzleba
